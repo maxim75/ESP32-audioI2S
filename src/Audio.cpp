@@ -516,8 +516,8 @@ bool Audio::connecttohost(const char* host, const char* user, const char* pwd) {
 //    strcat(resp, "Accept-Encoding: gzip;q=0\r\n");  // otherwise the server assumes gzip compression
 //    strcat(resp, "Transfer-Encoding: \r\n");  // otherwise the server assumes gzip compression
     strcat(resp, "Connection: keep-alive\r\n\r\n");
-    const uint32_t TIMEOUT_MS{250};
-    const uint32_t TIMEOUT_MS_SSL{2700};
+    const uint32_t TIMEOUT_MS{5000};
+    const uint32_t TIMEOUT_MS_SSL{10000};
     uint32_t t = millis();
     if(_client->connect(hostwoext, port, m_f_ssl ? TIMEOUT_MS_SSL : TIMEOUT_MS)) {
         _client->setNoDelay(true);
